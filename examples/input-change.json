@@ -1,0 +1,16 @@
+[
+  {
+    "id": "CHG-2025-10-01",
+    "title": "Add support for secondary Multus network and export image digest to Quay",
+    "description": "Jumpstarter environment now optionally attaches a Multus NAD and pushes to quay.io",
+    "impactAreas": [
+      "network",
+      "results",
+      "quay"
+    ],
+    "suggestedParams": {
+      "secondaryNetworkNAD": "nad/example",
+      "quayUrl": "quay.io/org/repo"
+    }
+  }
+]

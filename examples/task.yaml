@@ -1,0 +1,15 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: build-image
+spec:
+  workspaces:
+  - name: source
+  params:
+  - name: image
+    type: string
+  steps:
+  - name: build
+    image: quay.io/buildah/stable
+    script: |
+      buildah build -t $(params.image) .
