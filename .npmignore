@@ -1,0 +1,12 @@
+# Don't publish these to npm
+.agent-state/
+examples/
+src/
+*.md
+!README.md
+tsconfig.json
+.git/
+.gitignore
+node_modules/
+pnpm-lock.yaml
+
