@@ -83,6 +83,6 @@ export function mergeYAMLs(preferred: string, fallback: string): string {
 
 export async function writeOut(outPath: string, content: string) {
   const full = path.resolve(outPath);
-  fs.mkdirSync(path.dirname(full), { recursive: True as any });
+  fs.mkdirSync(path.dirname(full), { recursive: true });
   fs.writeFileSync(full, content, "utf8");
 }
