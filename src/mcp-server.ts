@@ -1,5 +1,8 @@
-// Minimal MCP-like JSON-RPC over stdio (adapter stub).
-// You can wire this into Cursor/VSCode MCP clients later.
+// Legacy MCP-like JSON-RPC over stdio (adapter stub).
+// NOTE: For full agent capabilities, use the new agent MCP server:
+//   pnpm agent mcp-server
+// This legacy server is kept for backwards compatibility.
+
 import { loadChangesFromFile } from "./jumpstarter/client.js";
 import { applyDeterministicRules, validateTaskYaml, mergeYAMLs } from "./tekton/updater.js";
 import { proposeWithLLM } from "./llm/propose.js";
@@ -7,6 +10,10 @@ import fs from "node:fs";
 
 type Req = { id: number|string, method: string, params?: any };
 type Res = { id: number|string, result?: any, error?: {code:number,message:string} };
+
+console.warn("⚠️  You are using the legacy MCP server.");
+console.warn("⚠️  For full agent capabilities, use: pnpm agent mcp-server");
+console.warn("");
 
 async function handle(req: Req): Promise<Res> {
   try {
