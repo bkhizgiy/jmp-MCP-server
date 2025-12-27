@@ -1,17 +1,29 @@
 {
-  "name": "ai-tekton-jumpstarter-updater",
-  "version": "0.1.0",
+  "name": "ai-tekton-jumpstarter-agent",
+  "version": "1.0.0",
   "type": "module",
   "private": false,
+  "description": "Autonomous AI agent for managing Tekton Task updates from Jumpstarter changes",
+  "keywords": [
+    "tekton",
+    "jumpstarter",
+    "ai-agent",
+    "mcp-server",
+    "openshift",
+    "ci-cd"
+  ],
   "scripts": {
     "build": "tsc -p .",
-    "dev": "tsx watch src/cli.ts",
-    "start": "node dist/cli.js",
+    "dev": "tsx watch src/agent/cli.ts",
+    "start": "node dist/agent/cli.js",
+    "agent": "tsx src/agent/cli.ts",
+    "mcp": "tsx src/agent/mcp-server.ts",
     "propose": "tsx src/cli.ts propose",
     "apply": "tsx src/cli.ts apply",
-    "mcp": "tsx src/mcp-server.ts"
+    "legacy-mcp": "tsx src/mcp-server.ts"
   },
   "bin": {
+    "tekton-agent": "dist/agent/cli.js",
     "ai-tekton-updater": "dist/cli.js"
   },
   "dependencies": {
@@ -19,6 +31,7 @@
     "ajv": "^8.17.1"
   },
   "devDependencies": {
+    "@types/node": "^20.0.0",
     "tsx": "^4.19.0",
     "typescript": "^5.6.3"
   }
