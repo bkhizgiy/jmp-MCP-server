@@ -1,0 +1,23 @@
+[
+  {
+    "id": "CHG-2026-01-HIGH",
+    "title": "Add privileged security context and custom service account for hardware access",
+    "description": "Jumpstarter now requires privileged container access for direct hardware interaction. This change adds a custom service account with elevated RBAC permissions, modifies the security context to allow privileged execution, and enables host network access. The task will need to mount /dev/usb and /sys/class for device management. These changes are necessary for USB device flashing and low-level hardware control in our CI/CD pipeline.",
+    "capability": "hardware-access",
+    "impactAreas": [
+      "serviceAccount",
+      "security",
+      "network",
+      "rbac"
+    ],
+    "suggestedParams": {
+      "serviceAccount": "jumpstarter-privileged",
+      "securityContext": {
+        "privileged": true,
+        "allowPrivilegeEscalation": true
+      },
+      "hostNetwork": true
+    }
+  }
+]
+
